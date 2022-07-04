@@ -4,17 +4,15 @@ from . import views
 
 urlpatterns = [
  	# Home page
- 	path('', views.index, name='index'),
+ 	path('contacts/', views.IndexView.as_view(), name='index'),
  	#The topics page 
- 	path('topics/', views.topics , name = 'topics'),
+ 	path('contacts/<int:pk>/', views.ContactDetailView.as_view(), name='detail'),
  	# Viewing individual topic entries 
- 	path('topic/<int:topic_id>', views.topic, name='topic'),
+ 	path('contacts/edit/<int:pk>/', views.edit, name='edit'),
  	# Adding a new topic 
- 	path('new_topic/', views.new_topic, name = 'new_topic'),
+ 	 path('contacts/create/', views.create, name='create'),
  	# url for adding a new entry about a given topic 
- 	path('new_entry/<int:topic_id>', views.new_entry, name='new_entry'),
- 	# page for edititng an entry 
- 	path('edit_entry/<int:entry_id>',views.edit_entry, name = 'edit_entry'),
-
+ 	path('contacts/delete/<int:pk>/', views.delete, name='delete'),
+ 	
 
 	]

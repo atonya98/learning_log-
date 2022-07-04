@@ -90,10 +90,17 @@ def edit_entry(request,entry_id):
 	return render(request, 'learning_logs/edit_entry.html', context)
 
 
+def delete_entry(request,entry_id):
+	entry = Entry.objects.get(id = entry_id)
+	topic = entry.topic
+	context = {}
+	if request.method == 'POST':
+		entry.delete()
+		return HttpResponseRedirect("/")
+		
 
 
-
-
+	return render(request, 'learning_logs/delete_entry.html',context)
 
 
 

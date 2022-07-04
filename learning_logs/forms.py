@@ -17,3 +17,5 @@ class EntryForm(forms.ModelForm):
 
 
 
+
+
